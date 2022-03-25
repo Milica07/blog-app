@@ -41,6 +41,15 @@ class ServicePosts {
     return [];
   }
 
+  async edit(id, post) {
+    try {
+      const { data } = await this.client.put(`posts/${id}`, post);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 }
 
 export default new ServicePosts();

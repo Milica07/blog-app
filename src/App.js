@@ -37,6 +37,9 @@ function App() {
           <Route path='/add'>
             <AddPost />
           </Route>
+          <Route path='/edit/:id'>
+            <AddPost />
+          </Route>
       </Switch>
 
     </div>
