@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ServicePosts from "../services/ServicePosts";
 import SinglePost from "../components/SinglePost";
+import { Link } from "react-router-dom";
 
 function AppPosts() {
     const [posts, setPosts] = useState([]);
@@ -20,7 +21,8 @@ function AppPosts() {
         <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <h1>{post.title}</h1>
+            <h3>{post.title}</h3>
+            <Link to={`post/${post.id}`}>View Post</Link>
           </li>
         ))}
       </ul>
