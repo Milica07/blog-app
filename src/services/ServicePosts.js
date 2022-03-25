@@ -23,7 +23,7 @@ class ServicePosts {
 
   async get(id) {
     try {
-      const { data } = await this.client.get(`posts/${id}`);
+      const { data } = await this.client.get(`posts/${id}?filter={"include":["comments"]}`);
       return data;
     } catch (error) {
       console.log(error);
@@ -61,7 +61,17 @@ class ServicePosts {
     return [];
   }
 
-  
+  async addComment(comment, postId) {
+    try {
+      const { data } = await this.client.post(`posts/${postId}/comments`, comment);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
+
 }
 
 export default new ServicePosts();
