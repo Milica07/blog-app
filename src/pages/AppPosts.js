@@ -17,6 +17,13 @@ function AppPosts() {
     }, 
     []);
 
+    const handleDelete = async (id) => {
+        const data = await ServicePosts.delete(id);
+        if (data.count > 0) {
+          setPosts(posts.filter((post) => id !== post.id));
+        }
+    };
+
   return (
     <div>
         <ul>
@@ -25,6 +32,7 @@ function AppPosts() {
             <h3  style={{ color: "pink" }}>{post.title}</h3>
             <Link to={`post/${post.id}`}>View Post</Link>
             <button type='button' onClick={() => history.push(`/edit/${post.id}`)}>Edit</button>
+            <button type='button' onClick={() => handleDelete(post.id)}>Delete</button>
           </li>
         ))}
       </ul>
