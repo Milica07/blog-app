@@ -12,7 +12,11 @@ function AddPost() {
     await ServicePosts.add(newPost);
     history.push("/posts");
   };
-  
+
+  const handleReset = () => {
+    setNewPost({title: '', text: ''});
+  };
+
   return (
     <div>
       <h3>Write a new post</h3>
@@ -25,6 +29,7 @@ function AddPost() {
           onChange={(e) => setNewPost({ ...newPost, text: e.target.value })}/>
         <br />
         <button type='submit'>Submit</button>
+        <button type='button' onClick={handleReset}>Reset</button>
       </form>
     </div>
   );
