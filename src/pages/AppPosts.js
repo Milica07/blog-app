@@ -21,7 +21,7 @@ function AppPosts() {
         <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <h3>{post.title}</h3>
+            <h3  style={{ color: "pink" }}>{post.title}</h3>
             <Link to={`post/${post.id}`}>View Post</Link>
           </li>
         ))}

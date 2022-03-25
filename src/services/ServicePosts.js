@@ -31,6 +31,16 @@ class ServicePosts {
     return [];
   }
 
+  async add(post) {
+    try {
+      const { data } = await this.client.post("posts", post);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
 }
 
 export default new ServicePosts();

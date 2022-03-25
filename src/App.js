@@ -8,6 +8,7 @@ import {
 import AppPosts from "./pages/AppPosts";
 import './App.css';
 import SinglePost from "./components/SinglePost";
+import AddPost from "./pages/AddPost";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           <li>
             <Link to='/posts'>Posts</Link>
           </li>
+          <li>
+              <Link to='/add'>Add Post</Link>
+          </li>
         </ul>
       </nav>
 
@@ -27,8 +31,11 @@ function App() {
           <Route path='/posts'>
             <AppPosts />
           </Route>
-          <Route to='/post/:id'>
+          <Route exact path='/post/:id'>
             <SinglePost />
+          </Route>
+          <Route path='/add'>
+            <AddPost />
           </Route>
       </Switch>
 
