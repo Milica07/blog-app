@@ -21,10 +21,10 @@ function AddPost() {
     <div>
       <h3>Write a new post</h3>
       <form onSubmit={handleSubmit}>
-        <input type='text' name='title' placeholder='Post title' value={newPost.title}
+        <input required minLength='2' type='text' name='title' placeholder='Post title' value={newPost.title}
           onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}/>
         <br />
-        <input type='text' placeholder='Post text...' style={{ height: "100px" }}
+        <input required maxLength='300' type='text' placeholder='Post text...' style={{ height: "100px" }}
           name='text' value={newPost.text}
           onChange={(e) => setNewPost({ ...newPost, text: e.target.value })}/>
         <br />
